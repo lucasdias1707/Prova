@@ -1,0 +1,29 @@
+object dmConexao: TdmConexao
+  OldCreateOrder = False
+  Height = 389
+  Width = 418
+  object FDConnection: TFDConnection
+    Params.Strings = (
+      'Database=C:\Prova\PROD.FDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'CharacterSet=win1252'
+      'DriverID=FB')
+    Left = 24
+    Top = 16
+  end
+  object FDTransaction1: TFDTransaction
+    Connection = FDConnection
+    Left = 104
+    Top = 16
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 200
+    Top = 16
+  end
+  object FBDriverLink1: TFDPhysFBDriverLink
+    Left = 24
+    Top = 72
+  end
+end

@@ -1,0 +1,36 @@
+unit uFrmCategoriaGrd;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TfrmCategoriasGrd = class(TForm)
+    pnlFundo: TPanel;
+    btnCancelar: TButton;
+    btnOk: TButton;
+    grdCategoria: TDBGrid;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCategoriasGrd: TfrmCategoriasGrd;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmCategoriasGrd.FormCreate(Sender: TObject);
+begin
+  dmConexao.Categoria := TCategoria.Create(dmConexao.FDConnection);
+  dsCategoria.DataSet := dmConexao.Categoria.fncGetCategoriasGrid('');
+end;
+
+end.

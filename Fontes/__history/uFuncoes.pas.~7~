@@ -1,0 +1,55 @@
+unit uFuncoes;
+
+interface
+
+uses
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, System.SysUtils,
+  Vcl.Mask;
+
+function fncProximoCodigo(Tabela, Campo: String): integer;
+function fncCriarMensagem(TituloJanela, TituloMSG, MSG, Icone, Tipo: String): boolean;
+
+implementation
+
+uses
+  FireDAC.Comp.Client, uConexaoBD, uCategoria;
+
+function fncProximoCodigo(Tabela, Campo: String): integer;
+var
+  QryConsulta: TFDQuery;
+begin
+  Result := 1;
+  try
+    dmConexao.FdConnection.Connected := False;
+    dmConexao.FdConnection.Connected := True;
+
+    QryConsulta := TFDQuery.Create(nil);
+    QryConsulta.Connection := dmConexao.FdConnection;
+
+    QryConsulta.Close;
+    QryConsulta.SQL.Clear;
+    QryConsulta.SQL.Add('SELECT MAX ( '+Campo+' ) AS CODIGO FROM ' + Tabela);
+    QryConsulta.Open;
+
+    if QryConsulta.FieldByName('CODIGO').AsString <> '' then
+      Result := QryConsulta.FieldByName('CODIGO').AsInteger + 1;
+  finally
+    QryConsulta.Destroy;
+  end;
+end;
+
+function fncCriarMensagem(TituloJanela, TituloMSG, MSG, Icone,
+  Tipo: String): boolean;
+begin
+  Result := False;
+  form_mensagens := Tform_mensagens.Create(Nil);
+  form_mensagens.sTituloJanela := TituloJanela;
+  form_mensagens.sTitutloMSG := TituloMSG;
+  form_mensagens.sMSG := MSG;
+  form_mensagens.sCaminhoIcone := Icone;
+  form_mensagens.sTipo := Tipo;
+  form_mensagens.ShowModal;
+  Result := form_mensagens.bRespostaMSG;
+end;
+
+end.

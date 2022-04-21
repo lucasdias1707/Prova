@@ -1,0 +1,79 @@
+unit FCadProduto;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.DBCtrls, Vcl.ExtCtrls,
+  Data.DB, uConexaoBD, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client, System.UITypes;
+
+type
+  TforCadastroProduto = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    edtCodigo: TEdit;
+    edtDescricao: TEdit;
+    edtPreço: TEdit;
+    Button1: TButton;
+    Button2: TButton;
+    Label5: TLabel;
+    qryVerificaProduto: TFDQuery;
+    cmbCategoria: TComboBox;
+    procedure Button2Click(Sender: TObject);
+    procedure edtDescricaoExit(Sender: TObject);
+    procedure cmbCategoriaDropDown(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  forCadastroProduto: TforCadastroProduto;
+
+implementation
+
+{$R *.dfm}
+
+procedure TforCadastroProduto.Button2Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure TforCadastroProduto.cmbCategoriaDropDown(Sender: TObject);
+begin
+  with qryVerificaProduto do
+  begin
+    close;
+    sql.Clear;
+    sql.Add('select descricao from categoria');
+    open;
+  end;
+end;
+
+procedure TforCadastroProduto.edtDescricaoExit(Sender: TObject);
+begin
+  with qryVerificaProduto do
+  begin
+    close;
+    sql.Clear;
+    sql.Add('select descricao from produtos where descricao =:pnome');
+    ParamByName('pnome').AsString := edtDescricao.Text;
+    open;
+    if qryVerificaProduto.RecordCount > 0 then
+    begin
+      messagedlg('Esse produto já está cadastrado!', mtWarning, [mbok], 0);
+      edtDescricao.SetFocus;
+      exit;
+    end;
+  end;
+end;
+
+end.

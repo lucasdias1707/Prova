@@ -1,0 +1,130 @@
+object forProdutos: TforProdutos
+  Left = 0
+  Top = 0
+  Align = alClient
+  BorderStyle = bsNone
+  ClientHeight = 625
+  ClientWidth = 823
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 823
+    Height = 625
+    Align = alClient
+    BevelOuter = bvNone
+    Color = 15921906
+    ParentBackground = False
+    TabOrder = 0
+    ExplicitHeight = 641
+    DesignSize = (
+      823
+      625)
+    object SpeedButton1: TSpeedButton
+      Left = 776
+      Top = 8
+      Width = 23
+      Height = 22
+      Anchors = [akTop, akRight]
+      Caption = 'X'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton1Click
+    end
+    object lblProdutos: TLabel
+      Left = 358
+      Top = 8
+      Width = 87
+      Height = 30
+      Alignment = taCenter
+      Anchors = [akLeft, akTop, akRight]
+      Caption = 'Produtos'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 8913664
+      Font.Height = -21
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold, fsItalic]
+      ParentFont = False
+      Transparent = True
+    end
+    object grdProdutos: TDBGrid
+      Left = 26
+      Top = 44
+      Width = 773
+      Height = 529
+      TabStop = False
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      DataSource = dsProdutos
+      ReadOnly = True
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Segoe UI'
+      TitleFont.Style = []
+    end
+    object edtExcluir: TButton
+      Left = 724
+      Top = 592
+      Width = 75
+      Height = 25
+      Anchors = [akRight, akBottom]
+      Caption = 'E&xcluir'
+      TabOrder = 5
+    end
+    object edtEditar: TButton
+      Left = 548
+      Top = 592
+      Width = 75
+      Height = 25
+      Anchors = [akRight, akBottom]
+      Caption = '&Editar'
+      TabOrder = 3
+    end
+    object edtIncluir: TButton
+      Left = 460
+      Top = 592
+      Width = 75
+      Height = 25
+      Anchors = [akRight, akBottom]
+      Caption = '&Incluir'
+      TabOrder = 2
+    end
+    object edtPesquisar: TButton
+      Left = 637
+      Top = 592
+      Width = 75
+      Height = 25
+      Anchors = [akRight, akBottom]
+      Caption = '&Pesquisar'
+      TabOrder = 4
+    end
+    object edtOutros: TButton
+      Left = 370
+      Top = 592
+      Width = 75
+      Height = 25
+      Anchors = [akRight, akBottom]
+      Caption = '&Outros'
+      TabOrder = 1
+    end
+  end
+  object dsProdutos: TDataSource
+    DataSet = dmConexao.qryProdutos
+    Left = 24
+    Top = 576
+  end
+end

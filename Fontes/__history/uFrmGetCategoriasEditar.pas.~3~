@@ -1,0 +1,43 @@
+unit uFrmGetCategoriasEditar;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.ExtCtrls;
+
+type
+  TfrmGetCategoriasEditar = class(TForm)
+    pnlFundo: TPanel;
+    grdCategoria: TDBGrid;
+    btnOk: TButton;
+    btnCancelar: TButton;
+    dsCategoria: TDataSource;
+    procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmGetCategoriasEditar: TfrmGetCategoriasEditar;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmGetCategoriasEditar.FormCreate(Sender: TObject);
+begin
+  dmConexao.Categoria := TCategoria.Create(dmConexao.FDConnection);
+  dsCategoria.DataSet := dmConexao.Categoria.fncGetCategoriasGrid('');
+end;
+
+procedure TfrmGetCategoriasEditar.FormShow(Sender: TObject);
+begin
+  dsCategoria.DataSet := dmConexao.Categoria.fncGetCategoriasGrid('');
+end;
+
+end.

@@ -1,0 +1,34 @@
+unit uFrmPesquisarCategoriaProduto;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TfrmPesquisarCategoriaProduto = class(TForm)
+    pnlFundo: TPanel;
+    edtDescricao: TEdit;
+    btnCancelar: TButton;
+    btnOk: TButton;
+    procedure edtDescricaoChange(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPesquisarCategoriaProduto: TfrmPesquisarCategoriaProduto;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmPesquisarCategoriaProduto.edtDescricaoChange(Sender: TObject);
+begin
+  frmProdutos.dsProdutos.DataSet := dmConexao.Produtos.fncFiltrarPorCategoria(edtCategoria.Text);
+end;
+
+end.

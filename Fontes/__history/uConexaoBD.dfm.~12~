@@ -1,0 +1,43 @@
+object dmConexao: TdmConexao
+  OldCreateOrder = False
+  Height = 389
+  Width = 418
+  object FDConnection: TFDConnection
+    Params.Strings = (
+      'Database=C:\Prova\PROD.FDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'CharacterSet=win1252'
+      'DriverID=FB')
+    Connected = True
+    Left = 24
+    Top = 16
+  end
+  object FDTransaction1: TFDTransaction
+    Connection = FDConnection
+    Left = 104
+    Top = 16
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 200
+    Top = 16
+  end
+  object FBDriverLink1: TFDPhysFBDriverLink
+    Left = 24
+    Top = 72
+  end
+  object qryProdutos: TFDQuery
+    Connection = FDConnection
+    SQL.Strings = (
+      'SELECT'
+      'P.ID"C'#211'DIGO"'
+      ',P.DESCRICAO"DESCRI'#199#195'O"'
+      ',C.DESCRICAO"CATEGORIA"'
+      ',P.PRECO"PRE'#199'O"'
+      'FROM PRODUTOS P'
+      'JOIN  CATEGORIA C ON P.ID_CATEGORIA = C.ID')
+    Left = 104
+    Top = 72
+  end
+end

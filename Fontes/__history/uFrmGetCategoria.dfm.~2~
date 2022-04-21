@@ -1,0 +1,143 @@
+object frmCategorias: TfrmCategorias
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Categorias'
+  ClientHeight = 396
+  ClientWidth = 518
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlFundo: TPanel
+    Left = 0
+    Top = 0
+    Width = 518
+    Height = 396
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitLeft = 160
+    ExplicitTop = 24
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object Panel1: TPanel
+      Left = 0
+      Top = 0
+      Width = 518
+      Height = 396
+      Align = alClient
+      BorderStyle = bsSingle
+      Color = 15987699
+      ParentBackground = False
+      TabOrder = 0
+      ExplicitWidth = 517
+      ExplicitHeight = 406
+      DesignSize = (
+        514
+        392)
+      object grdCategoria: TDBGrid
+        Left = 14
+        Top = 9
+        Width = 487
+        Height = 345
+        TabStop = False
+        DataSource = dsCategoria
+        Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+        ReadOnly = True
+        TabOrder = 4
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'ID'
+            Title.Caption = 'C'#211'DIGO'
+            Width = 100
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'DESCRICAO'
+            Width = 347
+            Visible = True
+          end>
+      end
+      object btnExcluir: TButton
+        Left = 320
+        Top = 391
+        Width = 75
+        Height = 25
+        Anchors = [akRight, akBottom]
+        Caption = 'Exclui&r'
+        TabOrder = 3
+        ExplicitLeft = 423
+        ExplicitTop = 366
+      end
+      object btnIncluir: TButton
+        Left = 145
+        Top = 391
+        Width = 75
+        Height = 25
+        Anchors = [akRight, akBottom]
+        Caption = '&Incluir'
+        TabOrder = 1
+        ExplicitLeft = 248
+        ExplicitTop = 366
+      end
+      object btnEditar: TButton
+        Left = 232
+        Top = 391
+        Width = 75
+        Height = 25
+        Anchors = [akRight, akBottom]
+        Caption = '&Editar'
+        TabOrder = 2
+        ExplicitLeft = 335
+        ExplicitTop = 366
+      end
+      object btnPesquisar: TButton
+        Left = 57
+        Top = 391
+        Width = 75
+        Height = 25
+        Anchors = [akRight, akBottom]
+        Caption = '&Pesquisar'
+        TabOrder = 0
+        ExplicitLeft = 160
+        ExplicitTop = 366
+      end
+      object btnOk: TButton
+        Left = 336
+        Top = 360
+        Width = 75
+        Height = 25
+        Caption = '&Ok'
+        TabOrder = 5
+        OnClick = btnOkClick
+      end
+      object btnCancelar: TButton
+        Left = 426
+        Top = 360
+        Width = 75
+        Height = 25
+        Caption = '&Cancelar'
+        TabOrder = 6
+      end
+    end
+  end
+  object dsCategoria: TDataSource
+    Left = 40
+    Top = 357
+  end
+end

@@ -1,0 +1,36 @@
+unit uFrmPesquisa;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TfrmPesquisa = class(TForm)
+    pnlFundo: TPanel;
+    btnProduto: TButton;
+    btnCategoria: TButton;
+    procedure btnProdutoClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPesquisa: TfrmPesquisa;
+
+implementation
+
+{$R *.dfm}
+
+uses uFrmPesquisarProdutos;
+
+procedure TfrmPesquisa.btnProdutoClick(Sender: TObject);
+begin
+  Application.CreateForm(TfrmPesquisarProduto, frmPesquisarProduto);
+  frmPesquisarProduto.ShowModal;
+end;
+
+end.

@@ -1,0 +1,36 @@
+unit uOutros;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TfrmOutros = class(TForm)
+    Panel1: TPanel;
+    Button1: TButton;
+    Button2: TButton;
+    Panel2: TPanel;
+    Label1: TLabel;
+    SpeedButton1: TSpeedButton;
+    procedure SpeedButton1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmOutros: TfrmOutros;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmOutros.SpeedButton1Click(Sender: TObject);
+begin
+  Close;
+end;
+
+end.

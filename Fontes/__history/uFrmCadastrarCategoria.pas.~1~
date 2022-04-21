@@ -1,0 +1,75 @@
+unit FCadCategoria;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, uConexao,
+  uConexaoBD, uCategoria, uFuncoes, Data.DB, uConfigurarServidor;
+
+type
+  TfrmCadProduto = class(TForm)
+    pnlFundo: TPanel;
+    btnConfirmar: TButton;
+    dsCategoria: TDataSource;
+    lblCodigo: TLabel;
+    edtCodigo: TEdit;
+    edtDescricao: TEdit;
+    lblDescricao: TLabel;
+    procedure btnConfirmarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadProduto: TfrmCadProduto;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmCadProduto.btnConfirmarClick(Sender: TObject);
+var
+  Erro: string;
+
+begin
+  dmConexao.Categoria.DESCRICAO := edtDescricao.Text;
+
+  if dmConexao.Categoria.fncInserirCategoria('INSERIR', Erro) then
+  begin
+
+    fncCriarMensagem('INSERINDO DADOS', 'CADASTRAR NOVA CATEGORIA',
+      'Cadastro realizado com sucesso, ', ExtractFilePath(Application.ExeName) +
+      '\Icones\sucess.png', 'OK');
+    Close;
+  end
+  else
+  begin
+    fncCriarMensagem('INSERINDO DADOS', 'ERRO AO CADASTRAR NOVA CATEGORIA',
+      'Não foi possível cadastrar a categoria, possível causa: ' + Erro,
+      ExtractFilePath(Application.ExeName) + '\Icones\alert.png', 'OK');
+    edtDescricao.SetFocus;
+  end;
+end;
+
+procedure TfrmCadProduto.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  dsCategoria.DataSet := dmConexao.Categoria.fncConsultaCategoria('');
+end;
+
+procedure TfrmCadProduto.FormShow(Sender: TObject);
+Var
+  Numero: Integer;
+begin
+
+  Numero := fncProximoCodigo('CATEGORIA', 'ID');
+  edtCodigo.Text := IntToStr(Numero);
+  edtDescricao.SetFocus;
+end;
+
+end.

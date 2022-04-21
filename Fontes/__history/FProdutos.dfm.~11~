@@ -1,0 +1,115 @@
+object forProdutos: TforProdutos
+  Left = 0
+  Top = 0
+  BorderStyle = bsNone
+  ClientHeight = 641
+  ClientWidth = 823
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 823
+    Height = 641
+    Align = alClient
+    BevelOuter = bvNone
+    Color = 15921906
+    ParentBackground = False
+    TabOrder = 0
+    DesignSize = (
+      823
+      641)
+    object SpeedButton1: TSpeedButton
+      Left = 776
+      Top = 8
+      Width = 23
+      Height = 22
+      Anchors = [akTop, akRight]
+      Caption = 'X'
+      Flat = True
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentFont = False
+      OnClick = SpeedButton1Click
+    end
+    object Label1: TLabel
+      Left = 344
+      Top = 8
+      Width = 87
+      Height = 30
+      Alignment = taCenter
+      Anchors = [akLeft, akTop, akRight]
+      Caption = 'Produtos'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 8913664
+      Font.Height = -21
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold, fsItalic]
+      ParentFont = False
+      Transparent = True
+    end
+    object DBGrid1: TDBGrid
+      Left = 26
+      Top = 44
+      Width = 773
+      Height = 529
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Segoe UI'
+      TitleFont.Style = []
+    end
+    object Button1: TButton
+      Left = 724
+      Top = 592
+      Width = 75
+      Height = 25
+      Caption = 'Excluir'
+      TabOrder = 1
+    end
+    object Button2: TButton
+      Left = 548
+      Top = 592
+      Width = 75
+      Height = 25
+      Caption = 'Editar'
+      TabOrder = 2
+    end
+    object Button3: TButton
+      Left = 460
+      Top = 592
+      Width = 75
+      Height = 25
+      Caption = 'Incluir'
+      TabOrder = 3
+    end
+    object Button4: TButton
+      Left = 637
+      Top = 592
+      Width = 75
+      Height = 25
+      Caption = 'Pesquisar'
+      TabOrder = 4
+    end
+    object Button5: TButton
+      Left = 370
+      Top = 592
+      Width = 75
+      Height = 25
+      Caption = 'Outros'
+      Enabled = False
+      TabOrder = 5
+    end
+  end
+end

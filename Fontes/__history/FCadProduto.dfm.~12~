@@ -1,0 +1,132 @@
+﻿object forCadastroProduto: TforCadastroProduto
+  Left = 0
+  Top = 0
+  BorderStyle = bsNone
+  ClientHeight = 286
+  ClientWidth = 266
+  Color = clWhite
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 297
+    Height = 281
+    BevelOuter = bvNone
+    TabOrder = 0
+    DesignSize = (
+      297
+      281)
+    object Label1: TLabel
+      Left = 40
+      Top = 64
+      Width = 38
+      Height = 13
+      Caption = 'C'#243'digo'
+    end
+    object Label2: TLabel
+      Left = 29
+      Top = 99
+      Width = 49
+      Height = 13
+      Caption = 'Descricao'
+    end
+    object Label3: TLabel
+      Left = 28
+      Top = 134
+      Width = 50
+      Height = 13
+      Caption = 'Categoria'
+    end
+    object Label4: TLabel
+      Left = 50
+      Top = 168
+      Width = 28
+      Height = 13
+      Caption = 'Pre'#231'o'
+    end
+    object Label5: TLabel
+      Left = 58
+      Top = 16
+      Width = 149
+      Height = 21
+      Alignment = taCenter
+      Anchors = [akLeft, akTop, akRight]
+      Caption = 'Cadastro de Produto'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 8913664
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold, fsItalic]
+      ParentFont = False
+    end
+    object edtCodigo: TEdit
+      Left = 84
+      Top = 61
+      Width = 61
+      Height = 21
+      CharCase = ecUpperCase
+      NumbersOnly = True
+      TabOrder = 0
+    end
+    object edtDescricao: TEdit
+      Left = 84
+      Top = 96
+      Width = 145
+      Height = 21
+      CharCase = ecUpperCase
+      TabOrder = 1
+      OnExit = edtDescricaoExit
+    end
+    object edtPreço: TEdit
+      Left = 84
+      Top = 165
+      Width = 61
+      Height = 21
+      CharCase = ecUpperCase
+      TabOrder = 2
+    end
+    object Button1: TButton
+      Left = 28
+      Top = 232
+      Width = 75
+      Height = 25
+      Anchors = [akLeft, akBottom]
+      Caption = '&Incluir'
+      TabOrder = 3
+    end
+    object Button2: TButton
+      Left = 154
+      Top = 232
+      Width = 75
+      Height = 25
+      Anchors = [akRight, akBottom]
+      Caption = '&Cancelar'
+      TabOrder = 4
+      OnClick = Button2Click
+    end
+    object cmbCategoria: TComboBox
+      Left = 84
+      Top = 131
+      Width = 145
+      Height = 21
+      TabOrder = 5
+      OnClick = cmbCategoriaClick
+    end
+  end
+  object qryVerificaProduto: TFDQuery
+    Active = True
+    CachedUpdates = True
+    Connection = dmConexao.FDConnection
+    SQL.Strings = (
+      'select descricao from categoria')
+    Left = 32
+    Top = 184
+  end
+end

@@ -1,0 +1,71 @@
+object frmOutros: TfrmOutros
+  Left = 0
+  Top = 0
+  BorderStyle = bsNone
+  Caption = 'frmOutros'
+  ClientHeight = 126
+  ClientWidth = 136
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 136
+    Height = 126
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitWidth = 129
+    ExplicitHeight = 209
+    object Button1: TButton
+      Left = 31
+      Top = 48
+      Width = 75
+      Height = 25
+      Caption = 'Filtrar'
+      TabOrder = 0
+    end
+    object Button2: TButton
+      Left = 31
+      Top = 79
+      Width = 75
+      Height = 25
+      Caption = 'Categorias'
+      TabOrder = 1
+    end
+    object Panel2: TPanel
+      Left = 0
+      Top = 0
+      Width = 136
+      Height = 17
+      Align = alTop
+      BevelOuter = bvNone
+      Color = 15263976
+      ParentBackground = False
+      TabOrder = 2
+      object Label1: TLabel
+        Left = 8
+        Top = 2
+        Width = 33
+        Height = 13
+        Caption = 'Outros'
+      end
+      object SpeedButton1: TSpeedButton
+        Left = 113
+        Top = 0
+        Width = 23
+        Height = 18
+        Caption = 'X'
+        Flat = True
+        OnClick = SpeedButton1Click
+      end
+    end
+  end
+end

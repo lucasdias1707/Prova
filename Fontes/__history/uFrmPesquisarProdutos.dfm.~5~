@@ -1,0 +1,75 @@
+object frmPesquisarProduto: TfrmPesquisarProduto
+  Left = 0
+  Top = 0
+  Caption = 'Pesquisar'
+  ClientHeight = 164
+  ClientWidth = 297
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlFundo: TPanel
+    Left = 0
+    Top = 0
+    Width = 297
+    Height = 164
+    Align = alClient
+    TabOrder = 0
+    ExplicitHeight = 86
+    object lblPesquisaCategoria: TLabel
+      Left = 16
+      Top = 78
+      Width = 121
+      Height = 13
+      Caption = 'Pesquisar por categoria'
+    end
+    object lblPesquisaProduto: TLabel
+      Left = 16
+      Top = 19
+      Width = 116
+      Height = 13
+      Caption = 'Pesquisar por produto'
+    end
+    object edtDescricao: TEdit
+      Left = 16
+      Top = 38
+      Width = 265
+      Height = 21
+      CharCase = ecUpperCase
+      TabOrder = 0
+      OnChange = edtCategoriaChange
+    end
+    object btnCancelar: TButton
+      Left = 206
+      Top = 129
+      Width = 75
+      Height = 25
+      Caption = '&Cancelar'
+      TabOrder = 2
+      OnClick = btnCancelarClick
+    end
+    object btnOk: TButton
+      Left = 125
+      Top = 129
+      Width = 75
+      Height = 25
+      Caption = '&Ok'
+      TabOrder = 1
+      OnClick = btnOkClick
+    end
+    object edtCategoria: TEdit
+      Left = 16
+      Top = 97
+      Width = 265
+      Height = 21
+      CharCase = ecUpperCase
+      TabOrder = 3
+      OnChange = edtCategoriaChange
+    end
+  end
+end

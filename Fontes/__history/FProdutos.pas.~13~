@@ -1,0 +1,41 @@
+unit FProdutos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls,
+  Data.DB, Vcl.Grids, Vcl.DBGrids, uConexaoBD;
+
+type
+  TforProdutos = class(TForm)
+    Panel1: TPanel;
+    SpeedButton1: TSpeedButton;
+    lblProdutos: TLabel;
+    grdProdutos: TDBGrid;
+    edtExcluir: TButton;
+    edtEditar: TButton;
+    edtIncluir: TButton;
+    edtPesquisar: TButton;
+    edtOutros: TButton;
+    dsProdutos: TDataSource;
+    procedure SpeedButton1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  forProdutos: TforProdutos;
+
+implementation
+
+{$R *.dfm}
+
+procedure TforProdutos.SpeedButton1Click(Sender: TObject);
+begin
+  Close;
+end;
+
+end.

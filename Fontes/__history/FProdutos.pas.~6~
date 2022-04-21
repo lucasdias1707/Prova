@@ -1,0 +1,53 @@
+unit FProdutos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Buttons, Vcl.ExtCtrls,
+  Vcl.StdCtrls, Vcl.Grids, Vcl.DBGrids, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
+
+type
+  TforProdutos = class(TForm)
+    grdProdutos: TDBGrid;
+    btnIncluir: TButton;
+    btnEditar: TButton;
+    btnExcluir: TButton;
+    pnlFundo: TPanel;
+    sbtFechar: TSpeedButton;
+    lblProdutos: TLabel;
+    btnOutros: TButton;
+    dsProdutos: TDataSource;
+    procedure sbtFecharClick(Sender: TObject);
+    procedure btnIncluirClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  forProdutos: TforProdutos;
+
+implementation
+
+{$R *.dfm}
+
+uses uConexaoBD, FCadProduto;
+
+
+procedure TforProdutos.btnIncluirClick(Sender: TObject);
+begin
+  forCadastroProduto.ShowModal;
+end;
+
+procedure TforProdutos.sbtFecharClick(Sender: TObject);
+begin
+  Close;
+end;
+
+end.
